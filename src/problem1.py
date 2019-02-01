@@ -3,9 +3,9 @@ Exam 3, problem 1.
 
 Authors: Vibha Alangar, Aaron Wilkin, David Mutchler, Dave Fisher, 
          Matt Boutell, Amanda Stouder, their colleagues and 
-         PUT_YOUR_NAME_HERE.  January 2019.
+         Hanrui Chen.  January 2019.
 
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import time
 import testing_helper
@@ -126,7 +126,7 @@ def problem1(n):
       :rtype: int
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # **** IMPORTANT ****:
     # We supplied a   fibonacci   function above.
@@ -139,6 +139,35 @@ def problem1(n):
     # and THEN try the full-credit version.
     # As always, CONTINUE to the next problem if you are STUCK on this one.
     # -------------------------------------------------------------------------
+
+    # count = 1
+    # while True:
+    #     if n <= fibonacci(count):
+    #         break
+    #     count = count + 1
+    # return fibonacci(count - 1)
+
+    # 2 = 0 + 1
+    # 3 = 1 + 2
+    # 4 = 2 + 3
+    # ...
+    # n = n - 2 + n - 1
+    count = 0
+    numbers = [0, 1]
+    for j in range(n + 2):
+        numbers.append(0)
+    if n > 2:
+        for k in range(2, n):
+            neo = numbers[k - 2] + numbers[k - 1]
+            numbers[k] = neo
+    while True:
+        if n <= numbers[count]:
+            break
+        elif count == n:
+            break
+        else:
+            count = count + 1
+    return numbers[count - 1]
 
 
 ###############################################################################
